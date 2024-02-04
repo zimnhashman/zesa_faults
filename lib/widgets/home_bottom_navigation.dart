@@ -38,17 +38,17 @@ class _BottomHomeNavigationState extends State<BottomHomeNavigation> {
                   heightFactor: 0.6,
                   child: FloatingActionButton(
                       backgroundColor: const Color(0xFF295D99),
-                      child: Image.asset('assets/images/call-icon.png', height: 35,),
                       elevation: 0.6,
                       onPressed: () {
                         Navigator.push(
                               context,
                               PageTransition(
                                   type: PageTransitionType.bottomToTop,
-                                  child: CallCenter()));
-                      }),
+                                  child: const CallCenter()));
+                      },
+                      child: Image.asset('assets/images/call-icon.png', height: 35,)),
                 ),
-                Container(
+                SizedBox(
                   width: size.width,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,

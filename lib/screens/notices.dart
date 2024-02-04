@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -7,6 +6,8 @@ import 'package:page_transition/page_transition.dart';
 import 'package:zesa_faults/home.dart';
 
 class Notices extends StatefulWidget {
+  const Notices({super.key});
+
   @override
   WebViewExampleState createState() => WebViewExampleState();
 }
@@ -37,19 +38,19 @@ class WebViewExampleState extends State<Notices> {
         desc: "",
         buttons: [
           DialogButton(
-            child: Text(
-              "OK",
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
             onPressed: () {
               Navigator.of(context, rootNavigator: true).pop();
               Navigator.push(
                   context,
                   PageTransition(
                       type: PageTransitionType.fade,
-                      child: Home()));
+                      child: const Home()));
             },
             width: 120,
+            child: const Text(
+              "OK",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
           )
         ],
       ).show();
@@ -62,7 +63,7 @@ class WebViewExampleState extends State<Notices> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notices'),
+        title: const Text('Notices'),
       ),
       body:Stack(
         children: <Widget>[

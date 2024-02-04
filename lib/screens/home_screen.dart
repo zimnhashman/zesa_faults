@@ -3,7 +3,6 @@ import 'package:zesa_faults/widgets/home_bottom_navigation.dart';
 import 'package:zesa_faults/screens/payments.dart';
 import 'package:zesa_faults/screens/notices.dart';
 import 'package:zesa_faults/screens/map.dart';
-import 'package:zesa_faults/screens/report_fault.dart';
 import 'package:zesa_faults/screens/account.dart';
 import 'package:flutter/material.dart';
 import 'package:zesa_faults/constants/color_constant.dart';
@@ -14,6 +13,8 @@ import 'package:sizer/sizer.dart';
 import 'platformLogic.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -26,7 +27,7 @@ Widget okButton = ElevatedButton(
 );
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _current = 0;
+  final int _current = 0;
 
   List<T> map<T>(List list, Function handler) {
     List<T> result = [];
@@ -106,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             context,
                                             PageTransition(
                                                 type: PageTransitionType.fade,
-                                                child: Payments()));
+                                                child: const Payments()));
                                       },
                                       child: Container(
                                         margin: EdgeInsets.only(right: 2.0.w),
@@ -155,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             context,
                                             PageTransition(
                                                 type: PageTransitionType.fade,
-                                                child: Account()));
+                                                child: const Account()));
                                       },
                                       child: Container(
                                         margin: EdgeInsets.only(left: 2.0.w),
@@ -261,7 +262,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             context,
                                             PageTransition(
                                                 type: PageTransitionType.fade,
-                                                child: Notices()));
+                                                child: const Notices()));
                                       },
                                       child: Container(
                                         margin: EdgeInsets.only(left: 2.0.w),
@@ -325,7 +326,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 PageTransition(
                                                     type: PageTransitionType
                                                         .fade,
-                                                    child: Map()));
+                                                    child: const Map()));
                                           } else {
                                             print('not connected');
                                           }

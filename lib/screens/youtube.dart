@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:zesa_faults/home.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +7,8 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:page_transition/page_transition.dart';
 
 class Youtube extends StatefulWidget {
+  const Youtube({super.key});
+
   @override
   _YoutubeState createState() => _YoutubeState();
 }
@@ -38,10 +39,6 @@ class _YoutubeState extends State<Youtube> {
         desc: "",
         buttons: [
           DialogButton(
-            child: const Text(
-              "OK",
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
             onPressed: () {
               Navigator.of(context, rootNavigator: true).pop();
               Navigator.push(
@@ -51,6 +48,10 @@ class _YoutubeState extends State<Youtube> {
                       child: const Home()));
             },
             width: 120,
+            child: const Text(
+              "OK",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
           )
         ],
       ).show();
@@ -64,7 +65,7 @@ class _YoutubeState extends State<Youtube> {
       appBar: AppBar(
         title: const Text('Youtube'),
       ),
-      bottomNavigationBar: BottomNavigation(),
+      bottomNavigationBar: const BottomNavigation(),
 
       // Body
       body: Stack(

@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:zesa_faults/home.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +7,8 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:page_transition/page_transition.dart';
 
 class Instagram extends StatefulWidget {
+  const Instagram({super.key});
+
   @override
   _InstagramState createState() => _InstagramState();
 }
@@ -38,10 +39,6 @@ class _InstagramState extends State<Instagram> {
         desc: "",
         buttons: [
           DialogButton(
-            child: const Text(
-              "OK",
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
             onPressed: () {
               Navigator.of(context, rootNavigator: true).pop();
               Navigator.push(
@@ -51,6 +48,10 @@ class _InstagramState extends State<Instagram> {
                       child: const Home()));
             },
             width: 120,
+            child: const Text(
+              "OK",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
           )
         ],
       ).show();
@@ -64,7 +65,7 @@ class _InstagramState extends State<Instagram> {
       appBar: AppBar(
         title: const Text('Instagram'),
       ),
-      bottomNavigationBar: BottomNavigation(),
+      bottomNavigationBar: const BottomNavigation(),
 
       // Body
       body: Stack(

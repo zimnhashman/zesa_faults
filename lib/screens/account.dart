@@ -27,6 +27,8 @@ class TransactionDetails {
 }
 
 class Account extends StatefulWidget {
+  const Account({super.key});
+
   @override
   _accountPageState createState() => _accountPageState();
 }
@@ -205,9 +207,7 @@ class _accountPageState extends State<Account>
                             ),
 
                           onPressed: () {
-                            _makePhoneCall('https://wa.me/' +
-                                regwhatsappNumber +
-                                '?text=Account Holder`s Name: \n Account Holder`s Surname: \n ID Number: \n Date Of Birth: \n Account Number: \n Property Number: \n Cell Number: \n Email Address: \n');
+                            _makePhoneCall('https://wa.me/$regwhatsappNumber?text=Account Holder`s Name: \n Account Holder`s Surname: \n ID Number: \n Date Of Birth: \n Account Number: \n Property Number: \n Cell Number: \n Email Address: \n');
                           },
 
                           icon: const Icon(
@@ -231,8 +231,15 @@ class _accountPageState extends State<Account>
                                   context,
                                   PageTransition(
                                       type: PageTransitionType.fade,
-                                      child: MyAccount()));
+                                      child: const MyAccount()));
                             },
+                            color: Colors.white,
+                            elevation: 0,
+                            minWidth: 400,
+                            height: 50,
+                            textColor: const Color(0xFF295D99),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
                             //since this is only a UI app
                             child: const Text(
                               'PROCEED TO LOGIN',
@@ -242,13 +249,6 @@ class _accountPageState extends State<Account>
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            color: Colors.white,
-                            elevation: 0,
-                            minWidth: 400,
-                            height: 50,
-                            textColor: const Color(0xFF295D99),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
                           ),
                         ),
                       ],

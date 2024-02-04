@@ -7,7 +7,7 @@ import 'package:page_transition/page_transition.dart';
 
 import 'online-payment.dart';
 
-final Color backgroundColor = const Color(0xFF2d2d39);
+const Color backgroundColor = Color(0xFF2d2d39);
 
 class TransactionDetails {
   final String item;
@@ -26,6 +26,8 @@ class TransactionDetails {
 }
 
 class Payments extends StatefulWidget {
+  const Payments({super.key});
+
   @override
   _MenuDashboardPageState createState() => _MenuDashboardPageState();
 }
@@ -154,16 +156,16 @@ class _MenuDashboardPageState extends State<Payments>
                                     ),
                                     SizedBox(height: 2.0.h),
                                     FloatingActionButton(
-                                        child: const Icon(
-                                          Icons.phone,
-                                          color: Colors.white,
-                                          size: 30,
-                                        ),
                                         elevation: 0.6,
                                         onPressed: () {
                                           _makePhoneCall(
                                               'tel:*151*2*3*1*1%23');
-                                        })
+                                        },
+                                        child: const Icon(
+                                          Icons.phone,
+                                          color: Colors.white,
+                                          size: 30,
+                                        ))
                                   ],
                                 ),
                               ),
@@ -195,16 +197,16 @@ class _MenuDashboardPageState extends State<Payments>
                                     SizedBox(height: 2.0.h),
                                     FloatingActionButton(
                                         backgroundColor: Colors.orange,
-                                        child: const Icon(
-                                          Icons.phone,
-                                          color: Colors.white,
-                                          size: 30,
-                                        ),
                                         elevation: 0.6,
                                         onPressed: () {
                                           _makePhoneCall(
                                               'tel:*111*2*1*1%23');
-                                        })
+                                        },
+                                        child: const Icon(
+                                          Icons.phone,
+                                          color: Colors.white,
+                                          size: 30,
+                                        ))
                                   ],
                                 ),
                               ),
@@ -235,15 +237,15 @@ class _MenuDashboardPageState extends State<Payments>
                                     SizedBox(height: 3.0.h),
                                     FloatingActionButton(
                                         backgroundColor: Colors.redAccent,
+                                        elevation: 0.6,
+                                        onPressed: () {
+                                          _makePhoneCall('tel:*888%23');
+                                        },
                                         child: const Icon(
                                           Icons.phone,
                                           color: Colors.white,
                                           size: 30,
-                                        ),
-                                        elevation: 0.6,
-                                        onPressed: () {
-                                          _makePhoneCall('tel:*888%23');
-                                        })
+                                        ))
                                   ],
                                 ),
                               ),
@@ -434,8 +436,15 @@ class _MenuDashboardPageState extends State<Payments>
                                   context,
                                   PageTransition(
                                       type: PageTransitionType.fade,
-                                      child: OnlinePayments()));
+                                      child: const OnlinePayments()));
                             },
+                            color: Colors.white,
+                            elevation: 0,
+                            minWidth: 400,
+                            height: 50,
+                            textColor: const Color(0xFF295D99),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
                             //since this is only a UI app
                             child: const Text(
                               'Pay Using PayNow',
@@ -445,13 +454,6 @@ class _MenuDashboardPageState extends State<Payments>
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            color: Colors.white,
-                            elevation: 0,
-                            minWidth: 400,
-                            height: 50,
-                            textColor: const Color(0xFF295D99),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
                           ),
                         ),
                       ],

@@ -14,9 +14,11 @@ import 'package:page_transition/page_transition.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flip_card/flip_card.dart';
 
-final Color backgroundColor = const Color(0xFF2d2d39);
+const Color backgroundColor = Color(0xFF2d2d39);
 
 class CallCenter extends StatefulWidget {
+  const CallCenter({super.key});
+
   @override
   _accountPageState createState() => _accountPageState();
 }
@@ -138,7 +140,7 @@ class _accountPageState extends State<CallCenter>
                                             child: InkWell(
                                               onTap: () {
                                                 _makePhoneCall(
-                                                    'https://wa.me/' + regwhatsappNumber + '?text=Meter Number: \n Physical Address: \n Telephone Number: \n Nature of Enquiry/Fault: \n Fault ref%23: \n');
+                                                    'https://wa.me/$regwhatsappNumber?text=Meter Number: \n Physical Address: \n Telephone Number: \n Nature of Enquiry/Fault: \n Fault ref%23: \n');
                                               },
                                               child: Container(
                                                 margin: EdgeInsets.only(
@@ -182,7 +184,7 @@ class _accountPageState extends State<CallCenter>
                                                     PageTransition(
                                                         type: PageTransitionType
                                                             .bottomToTop,
-                                                        child: Facebook()));
+                                                        child: const Facebook()));
                                               },
                                               child: Container(
                                                 margin: EdgeInsets.only(
@@ -223,7 +225,7 @@ class _accountPageState extends State<CallCenter>
                                                     PageTransition(
                                                         type: PageTransitionType
                                                             .bottomToTop,
-                                                        child: Youtube()));
+                                                        child: const Youtube()));
                                               },
                                               child: Container(
                                                 margin: EdgeInsets.only(
@@ -271,7 +273,7 @@ class _accountPageState extends State<CallCenter>
                                                     PageTransition(
                                                         type: PageTransitionType
                                                             .bottomToTop,
-                                                        child: Twitter()));
+                                                        child: const Twitter()));
                                               },
                                               child: Container(
                                                 margin: EdgeInsets.only(
@@ -314,7 +316,7 @@ class _accountPageState extends State<CallCenter>
                                                     PageTransition(
                                                         type: PageTransitionType
                                                             .bottomToTop,
-                                                        child: Instagram()));
+                                                        child: const Instagram()));
                                               },
                                               child: Container(
                                                 margin: EdgeInsets.only(
@@ -356,7 +358,7 @@ class _accountPageState extends State<CallCenter>
                                                   barrierDismissible: true,
                                                   builder:
                                                       (BuildContext context) {
-                                                    void _dismissDialog() {
+                                                    void dismissDialog() {
                                                       Navigator.of(context,
                                                               rootNavigator:
                                                                   true)
@@ -366,7 +368,7 @@ class _accountPageState extends State<CallCenter>
                                                     return AlertDialog(
                                                       title: const Text(
                                                           "CALL CENTER"),
-                                                      content: Container(
+                                                      content: SizedBox(
                                                         height: 60.0.h,
                                                         width: double.maxFinite,
                                                         child: ListView(
@@ -624,10 +626,10 @@ class _accountPageState extends State<CallCenter>
                                                       ),
                                                       actions: [
                                                         ElevatedButton(
+                                                          onPressed:
+                                                              dismissDialog,
                                                           child: const Text(
                                                               "Close"),
-                                                          onPressed:
-                                                              _dismissDialog,
                                                         ),
                                                       ],
                                                     );

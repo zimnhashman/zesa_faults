@@ -39,19 +39,19 @@ class _BottomHomeNavigationState extends State<BottomCallCenterNavigation> {
                   heightFactor: 0.6,
                   child: FloatingActionButton(
                       backgroundColor: const Color(0xFF295D99),
-                      child: const Icon(
-                        FontAwesomeIcons
-                            .house,
-                        color: Colors.white,
-                      ),
                       elevation: 0.6,
                       onPressed: () {
                         Navigator.push(
                             context,
                             PageTransition(
                                 type: PageTransitionType.bottomToTop,
-                                child: Home()));
-                      }),
+                                child: const Home()));
+                      },
+                      child: const Icon(
+                        FontAwesomeIcons
+                            .house,
+                        color: Colors.white,
+                      )),
                 ),
                 SizedBox(
                   width: size.width,

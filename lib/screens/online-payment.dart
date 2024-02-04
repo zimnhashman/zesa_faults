@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:zesa_faults/screens/payments.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -7,6 +6,8 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 import 'package:page_transition/page_transition.dart';
 
 class OnlinePayments extends StatefulWidget {
+  const OnlinePayments({super.key});
+
   @override
   WebViewExampleState createState() => WebViewExampleState();
 }
@@ -36,19 +37,19 @@ class WebViewExampleState extends State<OnlinePayments> {
         desc: "",
         buttons: [
           DialogButton(
-            child: Text(
-              "OK",
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
             onPressed: () {
               Navigator.of(context, rootNavigator: true).pop();
               Navigator.push(
                   context,
                   PageTransition(
                       type: PageTransitionType.fade,
-                      child: Payments()));
+                      child: const Payments()));
             },
             width: 120,
+            child: const Text(
+              "OK",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
           )
         ],
       ).show();
@@ -61,7 +62,7 @@ class WebViewExampleState extends State<OnlinePayments> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('PAYNOW'),
+        title: const Text('PAYNOW'),
       ),
       body: Stack(
         children: <Widget>[

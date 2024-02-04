@@ -1,7 +1,5 @@
 import 'package:zesa_faults/home.dart';
-import 'package:zesa_faults/screens/instagram.dart';
 import 'package:zesa_faults/screens/twitter.dart';
-import 'package:zesa_faults/screens/youtube.dart';
 import 'package:flutter/material.dart';
 import 'package:zesa_faults/constants/color_constant.dart';
 import 'package:zesa_faults/constants/whatsapp_number_variables.dart';
@@ -16,6 +14,8 @@ import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 
 
 class BottomNavigation extends StatefulWidget {
+  const BottomNavigation({super.key});
+
   @override
   _BottomNavigationState createState() => _BottomNavigationState();
 }
@@ -34,7 +34,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         Navigator.push(
             context,
             PageTransition(
-                type: PageTransitionType.bottomToTop, child: Facebook()));
+                type: PageTransitionType.bottomToTop, child: const Facebook()));
       }
 //      if (_selectedIndex == 1) {
 ////        _makePhoneCall('tel:0779525756');
@@ -48,13 +48,13 @@ class _BottomNavigationState extends State<BottomNavigation> {
         Navigator.push(
             context,
             PageTransition(
-                type: PageTransitionType.bottomToTop, child: Twitter()));
+                type: PageTransitionType.bottomToTop, child: const Twitter()));
       }
       if (_selectedIndex == 2) {
         Navigator.push(
             context,
             PageTransition(
-                type: PageTransitionType.bottomToTop, child: Home()));
+                type: PageTransitionType.bottomToTop, child: const Home()));
       }
 //      if (_selectedIndex == 4) {
 //        Navigator.push(
@@ -63,14 +63,14 @@ class _BottomNavigationState extends State<BottomNavigation> {
 //                type: PageTransitionType.bottomToTop, child: Youtube()));
 //      }
       if (_selectedIndex == 3) {
-        _makePhoneCall('https://wa.me/'+whatsappNumber);
+        _makePhoneCall('https://wa.me/$whatsappNumber');
       }
       if (_selectedIndex == 4) {
         showAnimatedDialog(
           context: context,
           barrierDismissible: true,
           builder: (BuildContext context) {
-            void _dismissDialog(){
+            void dismissDialog(){
               Navigator.of(context, rootNavigator: true).pop();
             }
             return AlertDialog(
@@ -238,8 +238,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
               ),
               actions: [
                 TextButton(
+                  onPressed: dismissDialog,
                   child: const Text("Close"),
-                  onPressed: _dismissDialog,
                 ),
               ],
             );

@@ -9,6 +9,8 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 
 class Map extends StatefulWidget {
+  const Map({super.key});
+
   @override
   WebViewExampleState createState() => WebViewExampleState();
 }
@@ -19,7 +21,7 @@ class WebViewExampleState extends State<Map> {
   bool isLoading = true;
   final LatLng _center = const  LatLng(38.9647,35.2233);
 
-  List<Marker> _markers = <Marker>[];
+  final List<Marker> _markers = <Marker>[];
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -55,19 +57,19 @@ class WebViewExampleState extends State<Map> {
         desc: "",
         buttons: [
           DialogButton(
-            child: const Text(
-              "OK",
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
             onPressed: () {
               Navigator.of(context, rootNavigator: true).pop();
               Navigator.push(
                   context,
                   PageTransition(
                       type: PageTransitionType.fade,
-                      child: Home()));
+                      child: const Home()));
             },
             width: 120,
+            child: const Text(
+              "OK",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
           )
         ],
       ).show();
@@ -82,7 +84,7 @@ class WebViewExampleState extends State<Map> {
       appBar: AppBar(
         title: const Text('ZETDC Map'),
       ),
-      bottomNavigationBar: BottomNavigation(),
+      bottomNavigationBar: const BottomNavigation(),
       body: Stack(
         children: <Widget>[
           WebViewWidget(

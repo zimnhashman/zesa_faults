@@ -5,6 +5,6 @@ getPlatform() {
   if (Platform.isIOS) {
     // return ReportFault2();
    } else if (Platform.isAndroid) {
-    return ReportFault();
+    return  ReportFault();
   }
 }
