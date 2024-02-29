@@ -30,10 +30,10 @@ class Account extends StatefulWidget {
   const Account({super.key});
 
   @override
-  _accountPageState createState() => _accountPageState();
+  _AccountPageState createState() => _AccountPageState();
 }
 
-class _accountPageState extends State<Account>
+class _AccountPageState extends State<Account>
     with SingleTickerProviderStateMixin {
   bool isCollapsed = true;
   double? screenWidth, screenHeight;
@@ -60,8 +60,8 @@ class _accountPageState extends State<Account>
   }
 
   void _makePhoneCall(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
     } else {
       throw 'Could not launch $url';
     }

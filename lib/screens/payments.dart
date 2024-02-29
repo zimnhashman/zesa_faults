@@ -4,6 +4,7 @@ import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:zesa_faults/constants/color_constant.dart';
 
 import 'online-payment.dart';
 
@@ -484,8 +485,11 @@ class _MenuDashboardPageState extends State<Payments>
       top: false,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('PAYMENTS'),
+          title: const Text('PAYMENTS', style: mAppBarText,),
           backgroundColor: Colors.lightBlue,
+          iconTheme: IconThemeData(
+              color: Colors.white
+          ),
         ),
         backgroundColor: const Color(0xff343442),
         body: Stack(

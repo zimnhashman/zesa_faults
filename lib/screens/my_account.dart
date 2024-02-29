@@ -3,6 +3,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:zesa_faults/constants/color_constant.dart';
 import 'package:zesa_faults/screens/account.dart';
 
 class MyAccount extends StatefulWidget {
@@ -64,7 +65,11 @@ class WebViewExampleState extends State<MyAccount> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Account'),
+        title: const Text('My Account', style: mAppBarText,),
+        backgroundColor: Colors.lightBlue,
+        iconTheme: IconThemeData(
+            color: Colors.white
+        ),
       ),
       body: Stack(
         children: <Widget>[

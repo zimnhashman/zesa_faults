@@ -55,7 +55,6 @@ class _YoutubeState extends State<Youtube> {
           )
         ],
       ).show();
-      print('No internet :( Reason:');
     }
   }
 

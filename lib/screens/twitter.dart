@@ -55,7 +55,6 @@ class _TwitterState extends State<Twitter> {
           )
         ],
       ).show();
-      print('No internet :( Reason:');
     }
   }
 
