@@ -381,8 +381,12 @@ class _ReportOtherFaultState extends State<ReportOtherFault> {
                                                 ],
                                               ).show();
                                             } else {
-                                              _makePhoneCall('https://wa.me/$regwhatsappNumber?text=Meter Number: ${_meterNumberController.text}\nPhysical Address: ${_physicalAddressController
-                                                      .text}\nTelephone Number: ${_telephoneController.text}\nFault: ${_enquiryController.text}\nFault ref%23: ${_faultRefController.text}');
+                                              _makePhoneCall('https://wa.me/$regwhatsappNumber?text='
+                                                  'Meter Number: ${Uri.encodeComponent(_meterNumberController.text)}\n'
+                                                  'Physical Address: ${Uri.encodeComponent(_physicalAddressController.text)}\n'
+                                                  'Telephone Number: ${Uri.encodeComponent(_telephoneController.text)}\n'
+                                                  'Fault: ${Uri.encodeComponent(_enquiryController.text)}\n'
+                                                  'Fault ref%23: ${Uri.encodeComponent(_faultRefController.text)}');
                                             }
                                           }),
                                     ],
