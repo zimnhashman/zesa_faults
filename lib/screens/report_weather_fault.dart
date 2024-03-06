@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:zesa_faults/screens/platformLogic.dart';
-import 'package:zesa_faults/screens/report_vandalism.dart';
-import 'package:zesa_faults/screens/weather_middleware.dart';
 import 'package:zesa_faults/widgets/bottom_navigation.dart';
 import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';

@@ -1,9 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:zesa_faults/constants/whatsapp_number_variables.dart';
+import 'package:zesa_faults/screens/map_selection.dart';
 import 'package:zesa_faults/widgets/bottom_navigation.dart';
 import 'package:flutter/services.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -22,6 +24,7 @@ class _ReportVandalismFaultState extends State<ReportVandalismFault> {
 
   final TextEditingController _descriptionController = TextEditingController();
   File? _image;
+  LatLng? _selectedLocation;
 
   @override
   void dispose() {
@@ -127,7 +130,20 @@ class _ReportVandalismFaultState extends State<ReportVandalismFault> {
                                   borderRadius:
                                   BorderRadius.circular(50),
                                 ),
-                              ),  // Placeholder for no image
+                              ),
+
+                              ElevatedButton(
+                                onPressed: () {
+                                  _selectLocationFromMap();
+                                },
+                                child: const Text('Select Location on Map'),
+                              ),
+
+                              // Display selected location
+                              _selectedLocation != null
+                                  ? Text(
+                                  'Selected Location: ${_selectedLocation!.latitude}, ${_selectedLocation!.longitude}')
+                                  : Container(), // Placeholder for no location// Placeholder for no image
 
 
                               // submit button
@@ -195,10 +211,33 @@ class _ReportVandalismFaultState extends State<ReportVandalismFault> {
     );
   }
 
+  // Function to open the map for location selection
+  void _selectLocationFromMap() async {
+    // Open a new screen or dialog where users can select the location on the map
+    LatLng? selectedLocation = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const MapSelectionScreen(),
+      ),
+    );
+
+    // Update the selected location
+    if (selectedLocation != null) {
+      setState(() {
+        _selectedLocation = selectedLocation;
+      });
+    }
+  }
+
   void _shareToWhatsApp() async {
     try {
       // Create a message with description and image path
       String message = "Description: ${_descriptionController.text}";
+
+      // Include selected location if available
+      if (_selectedLocation != null) {
+        message += "Location: ${_selectedLocation!.latitude}, ${_selectedLocation!.longitude}\n";
+      }
 
       // Launch WhatsApp with the pre-filled message
       String url = "https://wa.me/?text=${Uri.encodeComponent(message)}";
@@ -214,11 +253,11 @@ class _ReportVandalismFaultState extends State<ReportVandalismFault> {
     }
   }
 
-  void _makePhoneCall(String url) async {
-    if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url));
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+  // void _makePhoneCall(String url) async {
+  //   if (await canLaunchUrl(Uri.parse(url))) {
+  //     await launchUrl(Uri.parse(url));
+  //   } else {
+  //     throw 'Could not launch $url';
+  //   }
+  // }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:zesa_faults/screens/platformLogic.dart';
 import 'package:zesa_faults/screens/report_fault.dart';
 import 'package:zesa_faults/screens/report_vandalism.dart';
 import 'package:zesa_faults/screens/report_weather_fault.dart';

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:zesa_faults/screens/report_fault_selection.dart';
 import 'package:zesa_faults/widgets/home_bottom_navigation.dart';
 import 'package:zesa_faults/screens/payments.dart';
 import 'package:zesa_faults/screens/notices.dart';
@@ -10,7 +11,6 @@ import 'package:zesa_faults/constants/style_constant.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:sizer/sizer.dart';
-import 'platformLogic.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -213,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             context,
                                             PageTransition(
                                                 type: PageTransitionType.fade,
-                                                child: getPlatform()));
+                                                child: const ReportFault()));
                                       },
                                       child: Container(
                                         margin: EdgeInsets.only(right: 2.0.w),
