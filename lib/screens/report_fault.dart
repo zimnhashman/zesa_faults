@@ -8,14 +8,14 @@ import 'package:sizer/sizer.dart';
 import 'package:zesa_faults/widgets/mytextfield.dart';
 import 'package:zesa_faults/constants/color_constant.dart';
 
-class ReportFault extends StatefulWidget {
-  const ReportFault({super.key});
+class ReportOtherFault extends StatefulWidget {
+  const ReportOtherFault({super.key});
 
   @override
-  _ReportFaultState createState() => _ReportFaultState();
+  _ReportOtherFaultState createState() => _ReportOtherFaultState();
 }
 
-class _ReportFaultState extends State<ReportFault> {
+class _ReportOtherFaultState extends State<ReportOtherFault> {
   static const platform =
       MethodChannel("https://zetdc.co.zw/trackcomplaint");
 
@@ -54,7 +54,7 @@ class _ReportFaultState extends State<ReportFault> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightBlue,
-        title: const Text('Fault Management', style: mAppBarText,),
+        title: const Text('Report Other Fault', style: mAppBarText,),
         iconTheme: const IconThemeData(
           color: Colors.white
         ),

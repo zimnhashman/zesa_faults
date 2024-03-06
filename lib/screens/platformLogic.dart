@@ -1,5 +1,5 @@
 import 'dart:io' show Platform;
-import 'report_fault.dart';
+import 'package:zesa_faults/screens/report_fault_selection.dart';
 
 getPlatform() {
   if (Platform.isIOS) {
