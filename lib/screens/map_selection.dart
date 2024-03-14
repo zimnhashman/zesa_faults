@@ -18,7 +18,7 @@ class _MapSelectionScreenState extends State<MapSelectionScreen> {
   GoogleMapController? mapController;
 
   bool isLoading = true;
-  late LatLng _selectedLocation = LatLng(0.0, 0.0);
+  late LatLng _selectedLocation = LatLng(-17.871010, 31.068892);
 
   final List<Marker> _markers = <Marker>[];
 
